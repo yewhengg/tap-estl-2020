@@ -17,4 +17,5 @@ TAP Take Home Assignment ESTL 2020
 
 - `source venv/bin/activate`
 - `cd estl`
+- `python3 manage.py loaddata fixture.json`
 - `python3 manage.py runserver`

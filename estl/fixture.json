@@ -1,0 +1,102 @@
+[
+	{
+			"model": "app.employee",
+			"pk": 1,
+			"fields": {
+				"eid": "E0001",
+				"login": "tonystark",
+				"name": "Iron Man",
+				"salary": "9999999.999"
+			}
+	},
+	{
+			"model": "app.employee",
+			"pk": 2,
+			"fields": {
+				"eid": "E0002",
+				"login": "chrishemsworth",
+				"name": "Thor Prince of Asgard",
+				"salary": "1000.00"
+			}
+	},
+	{
+			"model": "app.employee",
+			"pk": 3,
+			"fields": {
+				"eid": "E0003",
+				"login": "brucebanner",
+				"name": "The Incredible Hulk",
+				"salary": "0.0"
+			}
+	},
+	{
+			"model": "app.employee",
+			"pk": 4,
+			"fields": {
+				"eid": "E0004",
+				"login": "steverogers",
+				"name": "Captain America",
+				"salary": "1234567.890"
+			}
+	},
+	{
+			"model": "app.employee",
+			"pk": 5,
+			"fields": {
+				"eid": "E0005",
+				"login": "clint",
+				"name": "Hawk Eye",
+				"salary": "000.000"
+			}
+	},
+	{
+			"model": "app.employee",
+			"pk": 6,
+			"fields": {
+				"eid": "E0006",
+				"login": "scarlett",
+				"name": "Black Widow",
+				"salary": "8888.88"
+			}
+	},
+	{
+			"model": "app.employee",
+			"pk": 7,
+			"fields": {
+				"eid": "E0007",
+				"login": "tomhhiddleston",
+				"name": "Loki",
+				"salary": "123.4"
+			}
+	},
+	{
+			"model": "app.employee",
+			"pk": 8,
+			"fields": {
+				"eid": "E0008",
+				"login": "clarkgregg",
+				"name": "Phil Coulson",
+				"salary": "1234.567"
+			}
+	},
+	{
+			"model": "app.employee",
+			"pk": 9,
+			"fields": {
+				"eid": "E0009",
+				"login": "samueljackson",
+				"name": "Nick Fury",
+				"salary": "8.8"
+			}
+	},
+	{
+			"model": "app.employee",
+			"pk": 10,
+			"fields": {
+				"eid": "E0010",
+				"login": "jarvis",
+				"name": "Just A Rather Very Intelligent System",
+				"salary": "8.88"
+			}
+	}
+]
