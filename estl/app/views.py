@@ -7,7 +7,6 @@ from rest_framework.decorators import api_view
 
 from http import HTTPStatus
 import json
-import requests
 
 from app.models import Employee
 from app.serializers import EmployeeSerializer
@@ -54,10 +53,8 @@ def employeesinfo(request):
             return HttpResponse(status=HTTPStatus.BAD_REQUEST)
         if request_sort[0] != "+" and request_sort[0] != "-":
             return HttpResponse(status=HTTPStatus.BAD_REQUEST)
-            # return JsonResponse({"Goodbye": "World"}, safe=False)
         if request_sort[1:] != "eid" and request_sort[1:] != "login" and request_sort[1:] != "name" and request_sort[1:] != "salary":
             return HttpResponse(status=HTTPStatus.BAD_REQUEST)
-            # return JsonResponse({"Hello": "World"}, safe=False)
         # success, extracting data from database
         if request_sort[0] == "+":
             employees = Employee.objects.all().\
