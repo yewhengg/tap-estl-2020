@@ -1,6 +1,7 @@
 from django.urls import path, include
-from app.views import employeeslist
+from app.views import dashboard, employeesinfo
 
 urlpatterns = [
-    path('', employeeslist)
+    path('', dashboard),
+    path('users/', employeesinfo),
 ]
