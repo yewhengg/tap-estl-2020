@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	{% load static %}
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ESTL Dashboard</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+
+			<nav class="col-sm-2 d-none d-md-block bg-dark sidebar">
+				<p class="sidebar-img-wrapper">
+					<img src="{% static 'placeholder.png' %}" class="sidebar-img" width="128" height="128">
+				</p>
+				<h3 class="sidebar-title">Long User Name</h3>
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Upload Users</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Function 1</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Function 2</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Function 3</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Function 4</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Function 5</a>
+					</li>
+				</ul>
+			</nav>
+
+			<main role="main" class="dashboard col-sm-10 ml-sm-auto">
+					<h2 class="dashboard-title">Employees</h2>
+					<form class="form-inline search-params" action="users" method="get">
+						<div class="form-group">
+							<label class="form-label" for="minsalary">Minimum Salary</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">$</span>
+								</div>
+								<input type="number" class="form-control" id="minSalary" placeholder="0" name="minSalary" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="form-label" for="maxsalary">Maximum Salary</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">$</span>
+								</div>
+								<input type="number" class="form-control" id="maxSalary" placeholder="0" name="maxSalary" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<input type="hidden" class="form-control" id="offset" placeholder="0" name="offset" value="0" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<input type="hidden" class="form-control" id="limit" placeholder="0" name="limit" value="30" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="form-label" for="sort">Sort By</label>
+							<div class="input-group">
+								<select class="custom-select d-block w-100" id="sort" name="sort" required>
+									<option value=""></option>
+									<option value="+eid">EID Ascending</option>
+									<option value="-eid">EID Descending</option>
+									<option value="+login">Login Ascending</option>
+									<option value="-login">Login Descending</option>
+									<option value="+name">Name Ascending</option>
+									<option value="-name">Name Descending</option>
+									<option value="+salary">Salary Ascending</option>
+									<option value="-salary">Salary Descending</option>
+								</select>
+							</div>
+						</div>
+						<button class="search-button" type="submit">Search</button>
+					</form>
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>EID</th>
+									<th>Login</th>
+									<th>Name</th>
+									<th>Salary</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for key, value in result %}
+								{% for x in value %}
+								<tr>
+									<td> {{ x.eid }} </td>
+									<td> {{ x.login }} </td>
+									<td> {{ x.name }} </td>
+									<td> {{ x.salary }} </td>
+								</tr>
+								{% endfor %}
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+			</main>
+
+		</div>
+	</div>
+
+</body>

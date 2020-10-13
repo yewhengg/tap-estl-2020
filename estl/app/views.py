@@ -7,6 +7,7 @@ from rest_framework.decorators import api_view
 
 from http import HTTPStatus
 import json
+import requests
 
 from app.models import Employee
 from app.serializers import EmployeeSerializer
@@ -16,7 +17,11 @@ def dashboard(request):
     # check that request method is 'GET'
     # if not, return HTTP 400 Bad Request
     if request.method == 'GET':
-        return JsonResponse({"Hello": "World"}, safe=False)
+        employees = Employee.objects.all()[:30]
+        employees_serializer = EmployeeSerializer(employees, many=True)
+        context = {"result": employees_serializer.data}
+        return render(request, 'index.html', {"result": context.items()})
+        # return JsonResponse({"Hello": "World"}, safe=False)
     else:
         return HttpResponse(status=HTTPStatus.BAD_REQUEST)
 
@@ -65,6 +70,11 @@ def employeesinfo(request):
                 filter(salary__lte = request_maxsalary).\
                 order_by(request_sort)[request_offset:int(request_offset + request_limit)]
         employees_serializer = EmployeeSerializer(employees, many=True)
-        return JsonResponse({"result": employees_serializer.data}, safe=False)
+        context = {"result": employees_serializer.data}
+        try:
+            if request.headers['User-Agent']:
+                return render(request, 'index.html', {"result": context.items()})
+        except:
+            return JsonResponse(context, safe=False)
     else:
         return HttpResponse(status=HTTPStatus.BAD_REQUEST)

@@ -1,0 +1,76 @@
+/*
+* Sidebar
+*/
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-img-wrapper {
+	padding-top: 25px;
+	padding-bototm: 25px;
+}
+
+.sidebar-img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	border-radius: 50%;
+}
+
+.sidebar-title, .nav-link {
+	color: white;
+	text-align: center;
+}
+
+.sidebar-title {
+	padding-top: 25px;
+	padding-bottom: 75px;
+}
+
+.nav-link {
+	font-size: 15px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+/*
+* Dashboard
+*/
+
+.dashboard {
+	background-color: white !important;
+}
+
+.dashboard-title {
+	text-align: left !important;
+	padding-left: 50px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+.form-label {
+	padding-left: 25px !important;
+	padding-right: 25px !important;
+}
+
+.search-button {
+	margin-left: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.search-params {
+	padding-left: 25px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
