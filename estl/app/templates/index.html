@@ -12,11 +12,31 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
+
+
 </head>
+
+{% block javascript %}
+<script>
+$(document).on('submit', '#upload-file-form',function(event){
+  $.ajax({
+		type : "POST",
+    url: '/users/upload',
+		data: $('#uploaded-file').val(),
+		succes: function(json) {
+			alert(json['message'])
+		},
+		error: function(json) {
+			alert(json['message'])
+		},
+  });
+});
+</script>
+{% endblock %}
 
 <body>
 
@@ -31,7 +51,7 @@
 				<ul class="nav flex-column">
 					<li class="nav-item">
 						<div class="text-center">
-							<button type="button" id="upload-users" class="btn btn-link upload-users" data-toggle="modal" data-target="#uploaduser-modal">
+							<button type="button" class="btn btn-link upload-users" data-toggle="modal" data-target="#uploaduser-modal">
 									Upload Users
 							</button>
 						</div>
@@ -64,13 +84,13 @@
 			        </button>
 			      </div>
 			      <div class="modal-body">
-							<form class="form" action="users/upload" method="post" enctype="multipart/form-data">
+							<form class="form" id="upload-file-form" action="users/upload" method="post" enctype="multipart/form-data">
 						    {% csrf_token %}
 								<div class="form-group">
-									<input type="file" name="uploaded_file">
+									<input type="file" id="uploaded-file" name="uploaded_file">
 								</div>
 								<div class="form-group">
-									<button type="submit" class="btn btn-primary">Upload</button>
+									<button type="submit"  id="upload-users" class="btn btn-primary">Upload</button>
 								</div>
 						  </form>
 			      </div>
